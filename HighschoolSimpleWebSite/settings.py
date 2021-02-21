@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+
+
+import django_heroku
+
+
+# Activate Django-Heroku.
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
@@ -23,9 +31,9 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = 'pxs$h^cohu*5)7@#wkax-q%%o0*vh^@d7qf=vdw(&^!m@=9^m+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['highschool.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['testhighschool.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -47,13 +55,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'HighschoolSimpleWebSite.urls'
@@ -135,10 +143,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
 # STATIC_ROOT = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles',)
+# STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles',)
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+
+django_heroku.settings(locals())
+
 STATICFILES_DIRS = [
-    STATIC_DIR,
+    BASE_DIR,
 ]
+
 MEDIA_ROOT  = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+
+
+import dj_database_url
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
