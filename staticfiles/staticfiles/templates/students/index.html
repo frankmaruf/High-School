@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    {% extends "base/base.html" %}
+    {% block body %}
+        <h1>Students List:</h1>
+        {% if students %}
+            {% for student in students %}
+
+            <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      {% if student.profile_pic%}
+          <img src="{{ student.profile_pic.url }}" alt="Avathar" width="192" height="200"/>
+        {% endif %}
+      <div class="caption">
+        <h3>{{ student.name }}</h3>
+        <p>{{ student.department }}
+            <br>
+            Roll: {{ student.roll }}
+            <br>
+            {{ student.Class }}</p>
+          {% if user.is_authenticated %}
+            <p><a href="{% url "students:edit_student" student.birth_certificate %}" class="btn btn-group-justified" role="button">Edit</a></p>
+        {% endif %}
+        <p><a href="{{ student.get_absolute_url }}" class="btn btn-primary" role="button">View More</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+        {% endfor %}
+            {% else %}
+            <p>Sorry We don't Have Any Student's Data</p>
+        {% endif %}
+    {% endblock %}
+</html>
