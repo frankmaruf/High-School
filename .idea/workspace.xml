@@ -5,7 +5,6 @@
     <list default="true" id="73a7a4a4-bd0c-4de2-b38a-622e29a395e1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/HighschoolSimpleWebSite/settings.py" afterPath="$PROJECT_DIR$/HighschoolSimpleWebSite/settings.py" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change beforePath="$PROJECT_DIR$/staticfiles/HighschoolSimpleWebSite/__init__.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/staticfiles/HighschoolSimpleWebSite/asgi.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/staticfiles/HighschoolSimpleWebSite/settings.py" afterPath="" />
@@ -1027,11 +1026,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HighschoolSimpleWebSite/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+            <state relative-caret-position="205">
+              <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
               <folding>
                 <element signature="e#323#332#0" expanded="true" />
               </folding>
@@ -1039,11 +1038,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProcFile" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ProcFile">
+      <file leaf-file-name="Procfile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+              <caret line="0" column="55" lean-forward="true" selection-start-line="0" selection-start-column="55" selection-end-line="0" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -1132,8 +1131,8 @@
         <option value="$PROJECT_DIR$/school_manager/views.py" />
         <option value="$PROJECT_DIR$/HighschoolSimpleWebSite/urls.py" />
         <option value="$PROJECT_DIR$/HighschoolSimpleWebSite/wsgi.py" />
-        <option value="$PROJECT_DIR$/HighschoolSimpleWebSite/settings.py" />
         <option value="$PROJECT_DIR$/ProcFile" />
+        <option value="$PROJECT_DIR$/HighschoolSimpleWebSite/settings.py" />
       </list>
     </option>
   </component>
@@ -1640,21 +1639,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HighschoolSimpleWebSite/settings.py">
+    <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
-          <folding>
-            <element signature="e#323#332#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="55" lean-forward="true" selection-start-line="0" selection-start-column="55" selection-end-line="0" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProcFile">
+    <entry file="file://$PROJECT_DIR$/HighschoolSimpleWebSite/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="205">
+          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+          <folding>
+            <element signature="e#323#332#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
