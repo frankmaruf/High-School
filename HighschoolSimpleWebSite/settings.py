@@ -146,9 +146,12 @@ STATIC_URL = '/static/'
 
 
 # STATIC_ROOT = "/static/"
-# STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles',)
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles',)
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+
+##Working
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
 django_heroku.settings(locals())
@@ -159,7 +162,6 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT  = MEDIA_DIR
 MEDIA_URL = '/media/'
-
 
 
 import dj_database_url
