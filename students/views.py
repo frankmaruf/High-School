@@ -15,7 +15,7 @@ def student_detail(request,certificate):
     return render(request,'students/details.html',context={"student":student})
 
 
-
+@login_required
 def StudentsAdd(request):
     form = StudentsForm()
     if request.method == 'POST':
