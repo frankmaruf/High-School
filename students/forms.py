@@ -41,11 +41,11 @@ class DateInput(forms.DateInput):
 
 class StudentsForm(forms.ModelForm):
     roll = forms.CharField(widget=forms.TextInput(attrs={'type':"number"}),max_length=20,)
-    contract = forms.CharField(widget=forms.TextInput(attrs={'type':"number"}),max_length=11,validators=[check_for_number,validators.MaxLengthValidator(11),validators.MinLengthValidator(11)])
+    contract = forms.CharField(widget=forms.TextInput(attrs={'type':"number"}),max_length=11,min_length=11,validators=[check_for_number,])
     birthDate = forms.DateField(widget=DateInput,)
-    birth_certificate = forms.CharField(widget=forms.TextInput(attrs={'type':"number"}),max_length=17,validators=[validators.MaxLengthValidator(17),validators.MinLengthValidator(17)])
-    father_NID = forms.CharField(widget=forms.TextInput(attrs={'type':"number"}),max_length=14,validators=[validators.MaxLengthValidator(14),validators.MinLengthValidator(14)])
-    mother_NID = forms.CharField(widget=forms.TextInput(attrs={'type':"number"}),max_length=14,validators=[validators.MaxLengthValidator(14),validators.MinLengthValidator(14)])
+    birth_certificate = forms.CharField(widget=forms.TextInput(attrs={'type':"number"}),max_length=17,min_length=17)
+    father_NID = forms.CharField(widget=forms.TextInput(attrs={'type':"number"}),max_length=14,min_length=14)
+    mother_NID = forms.CharField(widget=forms.TextInput(attrs={'type':"number"}),max_length=14,min_length=14)
 
 
 

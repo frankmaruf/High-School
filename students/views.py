@@ -44,6 +44,6 @@ def EditStudent(request,certificate):
                 student.profile_pic = request.FILES['profile_pic']
             student.save()
             messages.success(request, ("You have Update a Students.."))
-            return redirect('/students')
+            return redirect('/')
     context = {'form':form}
     return render(request,'students/students_add.html',context)
