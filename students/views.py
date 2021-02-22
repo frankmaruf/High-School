@@ -26,7 +26,7 @@ def StudentsAdd(request):
                 student.profile_pic = request.FILES['profile_pic']
             student.save()
             messages.success(request, ("You have Registered a Students.."))
-            return redirect('/students')
+            return redirect('/')
     else:
         form = StudentsForm()
     return render(request,'students/students_add.html',context={'form':form})
