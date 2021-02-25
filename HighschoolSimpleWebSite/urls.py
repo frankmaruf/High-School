@@ -28,5 +28,6 @@ urlpatterns = [
     path('school_manager/',include('school_manager.urls')),
     path('login/',login_user,name = 'login'),
     path('logout/',logout_user,name = 'logout'),
-    path('register/',register_user,name = 'register')
+    path('register/',register_user,name = 'register'),
+    path('api/',include("rest_api.urls")),
 ]+ static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

@@ -7,5 +7,4 @@ urlpatterns = [
     path('student/<certificate>/',views.student_detail, name='student_detail'),
     path('add_students/', views.StudentsAdd, name='add_students'),
     path('edit_student/<certificate>/', views.EditStudent, name='edit_student'),
-
 ]

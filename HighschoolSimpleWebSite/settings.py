@@ -16,7 +16,7 @@ from pathlib import Path
 import django_heroku
 
 
-# Activate Django-Heroku.
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -50,7 +50,9 @@ INSTALLED_APPS = [
     'students',
     'school_information',
     'school_manager',
-    'HighschoolSimpleWebSite'
+    'rest_api.apps.RestApiConfig',
+    'HighschoolSimpleWebSite',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -162,7 +164,7 @@ STATICFILES_DIRS = [
 ]
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+# Activate Django-Heroku.
 django_heroku.settings(locals())
 
 
