@@ -1,3 +1,4 @@
+#pip freeze
 django==3.1.4
 bcrypt==3.2.0
 argon2-cffi==20.1.0
@@ -10,4 +11,5 @@ django-heroku==0.3.1
 django-filter==2.4.0
 django-ckeditor==6.0.0
 Pillow==8.0.1
+djangorestframework==3.1.3
 #django-cors-headers
