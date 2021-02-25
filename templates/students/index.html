@@ -20,7 +20,8 @@
             <br>
             {{ student.Class }}</p>
           {% if user.is_authenticated %}
-            <p><a href="{% url "students:edit_student" student.birth_certificate %}" class="btn btn-group-justified" role="button">Edit</a></p>
+            <p><a href="{% url 'students:edit_student' student.birth_certificate %}" class="btn btn-group-justified" role="button">Edit</a>
+              <a href="{% url 'students:delete_student' student.birth_certificate %}" class="btn btn-group-justified" role="button">Delete</a></p>
         {% endif %}
         <p><a href="{{ student.get_absolute_url }}" class="btn btn-primary" role="button">View More</a></p>
       </div>

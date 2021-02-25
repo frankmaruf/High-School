@@ -47,3 +47,10 @@ def EditStudent(request,certificate):
             return redirect('/')
     context = {'form':form}
     return render(request,'students/students_add.html',context)
+def DeleteStudent(request,certificate):
+    student = Students.objects.get(birth_certificate=certificate)
+    if request.method == 'POST':
+        student.delete()
+        return redirect("/")
+    context = {'student':student}
+    return render(request,'students/students_delete.html',context)

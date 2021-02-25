@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    {% extends "base/base.html" %}
+    {% block body %}
+    <p>Are you sure want to delete:  {{student}}</p>
+    <form action="{% url 'students:delete_student' student.birth_certificate %}" method="POST">
+        {% csrf_token %}
+        <a href="{%url 'students:index'%}">Cancel</a>
+        <input type="submit" name = 'Confirm'>
+    </form>
+    {% endblock %}
