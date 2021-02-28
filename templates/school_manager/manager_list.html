@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    {% extends "base/base.html" %}
+    {% block body%}
+    <h1>Manager List:</h1>
+    {% if managers %}
+    {% for manager in managers%}
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            {% if manager.userprofileinfo.profile_pic%}
+                <img src="{{ manager.userprofileinfo.profile_pic.url }}" alt="Avathar" width="192" height="200"/>
+              {% endif %}
+            <div class="caption">
+              <h3>{{manager.first_name}} {{manager.last_name}}</h3>
+              <p style="text-align:center">{{ manager.userprofileinfo.contract_number }}
+                  <br>
+              </p>
+              <p><a href="{% url 'school_manager:profile' manager.username%}" class="btn btn-primary" role="button">View More</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%endfor%}
+    {%endif%}
+    {%endblock%}
+</html>

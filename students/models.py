@@ -22,7 +22,7 @@ class Students(models.Model):
     subject = models.ForeignKey(Subject,null=True,on_delete=models.SET_NULL,blank=True)
     roll = models.BigIntegerField(blank=False)
     year = models.ForeignKey(YearOfStudent,null=True,on_delete=models.SET_NULL)
-    examiner =models.ForeignKey(Examiner,null=True,on_delete=models.SET_NULL,blank=True)
+    examiner =models.ForeignKey(Examiner,null=True,on_delete=models.SET_NULL,blank=True)  #Rename this to Candidate
     birth_certificate = models.BigIntegerField(blank=False,unique=True)
     birthDate = models.DateField(blank=False,null=True)
     email = models.EmailField(blank=True)

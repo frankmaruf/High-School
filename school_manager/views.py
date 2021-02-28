@@ -7,11 +7,19 @@ from school_manager.forms import SignUpForm,CustomUserProfileInfoCreationForm,Ed
 from django.utils.translation import gettext_lazy as _
 from django.db import transaction
 from django.contrib.auth.models import User
+from school_manager.models import UserProfileInfo
 # Create your views here.
 
 
-def index(request):
-    return render(request,'school_manager/index.html')
+def manager_list(request):
+    user = User.objects.all()
+    context = {'managers':user}
+    return render(request,'school_manager/manager_list.html',context)
+
+def manager_profile(request,username):
+    user = User.objects.get(username=username)
+    context = {'user':user}
+    return render(request,'school_manager/manager_profile.html',context)
 
 def login_user(request):
     if request.method == "POST":
@@ -31,7 +39,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, ("You have been logged Out..."))
-    return redirect('/school_manager/index')
+    return redirect('/school_manager/')
 
 
 def register_user(request):
