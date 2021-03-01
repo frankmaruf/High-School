@@ -2,6 +2,26 @@
 <html>
     {% extends "base/base.html" %}
     {% block body %}
-        <h1>Hello Teachers</h1>
+        <h1>Teachers List:</h1>
+        {% if teachers %}
+        {% for teacher in teachers%}
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                {% if teacher.profile_pic%}
+                    <img src="{{ teacher.profile_pic.url }}" alt="Avathar" width="192" height="200"/>
+                  {% endif %}
+                <div class="caption">
+                  <h3>{{teacher.name}}</h3>
+                  <p style="text-align:center">{{ teacher.contract_number }}
+                      <br>
+                  </p>
+                  <p><a href="{%url 'teachers:profile' teacher.birth_certificate%}" class="btn btn-primary" role="button">View More</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%endfor%}
+        {%endif%}
     {% endblock %}
 </html>

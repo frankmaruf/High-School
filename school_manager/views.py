@@ -29,7 +29,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             messages.success(request,("You have Been Logged In!"))
-            return redirect('/school_manager/index')
+            return redirect('/school_manager/')
             # Redirect to a success page.
         else:
             messages.success(request,("Error Loggin in - Please Try Again.."))

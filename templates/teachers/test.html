@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    {%extends 'base/base.html'%}
+    {%block body%}
+    <div class="jumbotron">
+<form class="" action="" enctype="multipart/form-data" method="POST">
+    <input type="hidden" name="csrfmiddlewaretoken" value="gqFM3rpYQiPEVMES8vdxBvNBpqGdi7GlHhWEXqr9MFKeqFffABVyENN8XlGFMLjh">
+    <p><label for="id_name">Name:</label> <input type="text" name="name" maxlength="150" required="" id="id_name"></p>
+<p><label for="id_profile_pic">Profile pic:</label> <input type="file" name="profile_pic" accept="image/*" id="id_profile_pic"></p>
+<p><label for="id_gender">Gender:</label> <select name="gender" required="" id="id_gender">
+  <option value="" selected="">---------</option>
+
+  <option value="Male">Male</option>
+
+  <option value="Female">Female</option>
+
+</select></p>
+<p><label for="id_NID">NID:</label> <input type="number" name="NID" min="-9223372036854775808" max="9223372036854775807" required="" id="id_NID"></p>
+<p><label for="id_birth_certificate">Birth certificate:</label> <input type="number" name="birth_certificate" min="-9223372036854775808" max="9223372036854775807" required="" id="id_birth_certificate"></p>
+<p><label for="id_birthDate">Birthdate:</label> <input type="date" name="birthDate" required="" id="id_birthDate"></p>
+<p><label for="id_contract_number">Contract number:</label> <input type="text" name="contract_number" maxlength="11" required="" id="id_contract_number"></p>
+<p><label for="id_email">Email:</label> <input type="email" name="email" maxlength="100" id="id_email"></p>
+<p><label for="id_father_name">Father name:</label> <input type="text" name="father_name" maxlength="150" required="" id="id_father_name"></p>
+<p><label for="id_mother_name">Mother name:</label> <input type="text" name="mother_name" maxlength="150" required="" id="id_mother_name"></p>
+<p><label for="id_present_Address">Present Address:</label> <input type="text" name="present_Address" maxlength="250" required="" id="id_present_Address"></p>
+<p><label for="id_permanent_Address">Permanent Address:</label> <input type="text" name="permanent_Address" maxlength="250" required="" id="id_permanent_Address"></p>
+<p><label for="id_teaching_deaprtment">Teaching deaprtment:</label> <select name="teaching_deaprtment" id="id_teaching_deaprtment" multiple="">
+  <option value="1">General</option>
+
+  <option value="2">Vocational</option>
+
+</select></p>
+<p><label for="id_teaching_subjects">Teaching subjects:</label> <input type="text" name="teaching_subjects" maxlength="200" id="id_teaching_subjects"></p>
+<p><label for="id_teaching_class">Teaching class:</label> <select name="teaching_class" required="" id="id_teaching_class" multiple="">
+  <option value="1">One</option>
+
+  <option value="2">Two</option>
+
+  <option value="3">Three</option>
+
+  <option value="4">Four</option>
+
+  <option value="5">Five</option>
+
+  <option value="6">Six</option>
+
+  <option value="7">Seven</option>
+
+  <option value="8">Eight</option>
+
+  <option value="9">Nine</option>
+
+  <option value="10">Ten</option>
+
+</select></p>
+    <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+{%endblock%}
+</html>
