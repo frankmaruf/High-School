@@ -39,7 +39,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, ("You have been logged Out..."))
-    return redirect('/school_manager/')
+    return redirect('/')
 
 
 def register_user(request):
@@ -59,7 +59,7 @@ def register_user(request):
             user = authenticate(request,username = username,password = password)
             login(request,user)
             messages.success(request,("You have Registered.."))
-            return redirect('/school_manager/index')
+            return redirect('/school_manager/')
 
     else:
         form = SignUpForm()
@@ -86,7 +86,7 @@ def edit_prifile(request):
             profile.user = user
             profile.save()
             messages.success(request,("Your profile was successfully updated!"))
-            return redirect('/school_manager/index')
+            return redirect('/school_manager/')
         else:
             messages.error(request, _('Please correct the error below.'))
 
@@ -104,7 +104,7 @@ def change_password(request):
             form.save()
             update_session_auth_hash(request,form.user)
             messages.success(request,("You have Edited Your Password.."))
-            return redirect('/school_manager/index')
+            return redirect('/school_manager/')
     else:
         form = PasswordChangeForm(user=request.user)
     context = {'form':form}

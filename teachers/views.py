@@ -28,7 +28,7 @@ def TeachersAdd(request):
     else:
         form = TeachersForm()
     context = {'form':form}
-    return render(request,'teachers/test.html',context)
+    return render(request,'teachers/teachers_add.html',context)
     
 @login_required
 def EditTeacher(request,certificate):
