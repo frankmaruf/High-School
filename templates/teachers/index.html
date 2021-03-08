@@ -15,6 +15,10 @@
                   <h3>{{teacher.name}}</h3>
                   <p style="text-align:center">{{ teacher.contract_number }}
                       <br>
+                      {% if user.is_authenticated %}
+            <p><a href="{% url 'teachers:edite_teachers' teacher.birth_certificate %}" class="btn btn-group-justified" role="button">Edit</a>
+              <a href="{% url 'teachers:delete_teachers' teacher.birth_certificate %}" class="btn btn-group-justified" role="button">Delete</a></p>
+        {% endif %}
                   </p>
                   <p><a href="{%url 'teachers:profile' teacher.birth_certificate%}" class="btn btn-primary" role="button">View More</a></p>
                 </div>

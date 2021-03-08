@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
-
+from django.contrib.auth.models import User
+from django.urls import reverse
 # Create your models here.
 class YearOfStudent(models.Model):
     year = models.PositiveSmallIntegerField(blank=False)
@@ -73,3 +74,30 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class NoticBoard(models.Model):
+    title = models.CharField(max_length=250, blank=False)
+    created_by = models.ForeignKey(User,on_delete=models.CASCADE)
+    details = models.TextField(blank=False)
+    pdf = models.FileField(blank=True, upload_to = "Notic_Board/pdf")
+    image = models.ImageField(upload_to = 'Notic_Board', blank = True)
+    added_date = models.DateTimeField(auto_now_add=True)
+    edited_date = models.DateTimeField(auto_now=True)
+    slug = models.SlugField(unique=False,blank=True)
+
+    def save(self, *args,**kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(NoticBoard,self).save(*args,**kwargs)
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('school_information:notice_board_details',
+        args = [self.slug,
+        self.added_date.day,
+        self.added_date.month,
+        self.added_date.year])
+
+

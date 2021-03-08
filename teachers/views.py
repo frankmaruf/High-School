@@ -45,3 +45,12 @@ def EditTeacher(request,certificate):
             return redirect('/teachers')
     context = {'form':form}
     return render(request,'teachers/teachers_add.html',context)
+
+@login_required
+def DeleteTeacher(request,certificate):
+    teacher = Teachers.objects.get(birth_certificate=certificate)
+    if request.method == 'POST':
+        teacher.delete()
+        return redirect("/teachers")
+    context = {'teachers':teacher}
+    return render(request,'teachers/teachers_delete.html',context)

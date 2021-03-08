@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect,HttpResponse
+from django.shortcuts import render,redirect,HttpResponse,get_object_or_404
 from django.contrib.auth import authenticate,login,logout,update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
@@ -109,3 +109,5 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user)
     context = {'form':form}
     return render(request,'school_manager/change_password.html',context)
+
+

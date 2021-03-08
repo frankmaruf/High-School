@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'rest_api.apps.RestApiConfig',
     'HighschoolSimpleWebSite',
     'rest_framework',
+    # 'easy_pdf'
 ]
 
 MIDDLEWARE = [

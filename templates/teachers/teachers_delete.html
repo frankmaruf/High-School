@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    {%extends "base/base.html"%}
+    {%block body%}
+    <p>Arer you sure want to delete: {{teachers}}</p>
+    <form action="{%url 'teachers:delete_teachers' teachers.birth_certificate%}" method="POST">
+        {%csrf_token%}
+        <a href="{%url 'teachers:index'%}">Cancel</a>
+        <input type="submit" name="Confirm">
+    </form>
+    {%endblock%}
+</html>

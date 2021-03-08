@@ -3,5 +3,24 @@
     {% extends "base/base.html" %}
     {% block body %}
         <h1>Hello School Information</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>title</td>
+                    <th>Publish Date</td>
+                    <th>Publish By</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for notice in notices%}
+                <tr>
+                    <td><a href="{{notice.get_absolute_url}}">{{notice.title}}</a></td>
+                    <td>{{notice.added_date}}</td>
+                    <td>{{notice.created_by.first_name}}</td>
+                    
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
     {% endblock %}
 </html>

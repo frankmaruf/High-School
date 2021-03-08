@@ -13,4 +13,7 @@ django-ckeditor==6.0.0
 Pillow==8.0.1
 djangorestframework==3.12.2
 pytz==2020.4
+#django-easy-pdf==0.1.1
+#WeasyPrint==52.3
+#xhtml2pdf==0.2b1
 #django-cors-headers
