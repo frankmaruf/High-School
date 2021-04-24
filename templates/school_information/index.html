@@ -3,6 +3,9 @@
     {% extends "base/base.html" %}
     {% block body %}
         <h1>Hello School Information</h1>
+        {% if user.is_authenticated %}
+        <a href="{%url 'school_information:notice_board'%}">add notice</a>
+        {% endif %}
         <table class="table">
             <thead>
                 <tr>

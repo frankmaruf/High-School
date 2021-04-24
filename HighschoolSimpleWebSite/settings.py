@@ -33,7 +33,7 @@ SECRET_KEY = 'pxs$h^cohu*5)7@#wkax-q%%o0*vh^@d7qf=vdw(&^!m@=9^m+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['testhighschool.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['localhost','testhighschool.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -53,12 +53,16 @@ INSTALLED_APPS = [
     'rest_api.apps.RestApiConfig',
     'HighschoolSimpleWebSite',
     'rest_framework',
+    'ckeditor',
+    'ckeditor_uploader',
+    'corsheaders',
     # 'easy_pdf'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -68,7 +72,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'HighschoolSimpleWebSite.urls'
-
+CORS_ALLOW_ALL_ORIGINS = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -177,3 +181,24 @@ MEDIA_URL = '/media/'
 # LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
 SITE_ID = 1
+
+
+
+
+####################################
+    ##  CKEDITOR CONFIGURATION ##
+####################################
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': 300,
+    },
+}
+
+###################################
