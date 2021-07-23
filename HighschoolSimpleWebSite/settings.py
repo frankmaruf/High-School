@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'students',
     'school_information',
     'school_manager',
+    'accounts',
     'rest_api.apps.RestApiConfig',
     'HighschoolSimpleWebSite',
     'rest_framework',

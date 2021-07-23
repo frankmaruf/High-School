@@ -16,6 +16,12 @@ def notice_details(request,slug,day,month,year):
     notice = NoticBoard.objects.get(slug=slug,added_date__day=day,added_date__month = month,added_date__year=year)
     context = {"notice":notice}
     return render(request,'school_information/notice_details.html',context)
+
+def notice_details(request,slug,day,month,year):
+    notice = NoticBoard.objects.get(slug=slug,added_date__day=day,added_date__month = month,added_date__year=year)
+    context = {"notice":notice}
+    return render(request,'school_information/notice_details.html',context)
+
     
 @login_required
 def notice_board(request):

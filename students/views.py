@@ -4,6 +4,8 @@ from students.models import Students
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from school_information.models import Department,Subject
+from django.views.generic import View
+from .utils import DetailObjectMixin
 # Create your views here.
 
 def index(request):
@@ -13,6 +15,14 @@ def index(request):
 def student_detail(request,certificate):
     student = get_object_or_404(Students, birth_certificate = certificate)
     return render(request,'students/details.html',context={"student":student})
+
+class Student_detail(DetailObjectMixin,View):
+    model = Post
+    template = 'students/details.html'
+    #def get(self, request,certificate):
+        #student = Students.objects.get(birth_certificate = certificate)
+        #return render(request,"students/details.html",context={"student":student})
+
 
 
 @login_required

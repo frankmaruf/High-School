@@ -1,5 +1,5 @@
 from django import forms
-from school_information.models import Class,Department,YearOfStudent,Examiner,Subject
+from school_information.models import Class,Department,YearOfStudent,Candidate,Subject
 from students.models import Students
 from django.core import validators
 from django.core.exceptions import ValidationError,NON_FIELD_ERRORS
@@ -70,12 +70,12 @@ class StudentsForm(forms.ModelForm):
                 raise ValidationError("Roll already exist")
     class Meta:
         model = Students
-        exclude = ['Join_Date','Update_Date','examiner']
+        exclude = ['Join_Date','Update_Date','candidate_of']
         fields = "__all__"
 
 
 class EditStudentForm(forms.ModelForm):
     class Meta:
         model = Students
-        exclude = ['Join_Date','Update_Date','examiner','birth_certificate','birthDate','gender']
+        exclude = ['Join_Date','Update_Date','candidate_of','birth_certificate','birthDate','gender']
         fields = "__all__"

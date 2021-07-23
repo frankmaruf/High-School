@@ -1,21 +1,21 @@
 from django.db.models.signals import post_save,pre_save,pre_init
 from django.dispatch import receiver
 from students.models import Students
-from school_information.models import Examiner,Class
+from school_information.models import Candidate,Class
 from school_manager.models import UserProfileInfo
 
 
 
 
 @receiver(pre_save,sender = Students)
-def self_student_examiner(sender,instance,**kwargs):
-    exam_primary = Examiner.objects.get(examiner_title__icontains="Primary School Certificate")
+def self_student_candidate(sender,instance,**kwargs):
+    exam_primary = Candidate.objects.get(name__icontains="Primary School Certificate")
     exam_primary_id = str(exam_primary.id)
 
-    exam_junior = Examiner.objects.get(examiner_title__icontains="Junior School Certificate")
+    exam_junior = Candidate.objects.get(name__icontains="Junior School Certificate")
     exam_junior_id = str(exam_junior.id)
 
-    exam_secondary = Examiner.objects.get(examiner_title__icontains="Secondary School Certificate")
+    exam_secondary = Candidate.objects.get(name__icontains="Secondary School Certificate")
     exam_secondary_id = str(exam_secondary.id)
 
     """to get all objects pk 
@@ -35,23 +35,23 @@ def self_student_examiner(sender,instance,**kwargs):
 
 
     if instance.Class_id == five_id:
-        instance.examiner_id = exam_primary_id
+        instance.candidate_id = exam_primary_id
 
     elif instance.Class_id == eight_id:
-        instance.examiner_id = exam_junior_id
+        instance.candidate_id = exam_junior_id
 
     elif instance.Class_id == nive_id:
-        instance.examiner_id = exam_secondary_id
+        instance.candidate_id = exam_secondary_id
 
     elif instance.Class_id == ten_id:
-        instance.examiner_id = exam_secondary_id
+        instance.candidate_id = exam_secondary_id
 
     else:
-        instance.examiner_id = None
+        instance.candidate_id = None
 
 
         """post save
-        # if instance.Sd_Examiner_id is None:
-        #     instance.Sd_Examiner_id = exam_primary_id
+        # if instance.Sd_Candidate_id_id is None:
+        #     instance.Sd_Candidate_id = exam_primary_id
         #     instance.save()
         """

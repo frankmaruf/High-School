@@ -27,8 +27,8 @@
                             <div class="mt-3">
                               <h4>{{student.name}}</h4>
                               <p class="text-secondary mb-1">Class: {{student.Class}}</p>
-                              {%if student.examiner%}
-                              <p class="text-muted font-size-sm">Candidate Of: {{student.examiner}}</p>
+                              {%if student.candidate%}
+                              <p class="text-muted font-size-sm">Candidate Of: {{student.candidate}}</p>
                               {%endif%}
                               <div class="row">
                               <p class="text-muted font-size-sm">{{student.present_Address}}</p>
@@ -104,10 +104,10 @@
                           <hr>
                           <div class="row">
                             <div class="col-sm-3">
-                              <h6 class="mb-0">Examiner</h6>
+                              <h6 class="mb-0">Candidate</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{student.examiner}}
+                                {{student.candidate}}
                             </div>
                           </div>
                           <hr>

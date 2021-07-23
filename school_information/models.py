@@ -12,10 +12,11 @@ class YearOfStudent(models.Model):
         if not self.slug:
             self.slug = slugify(self.year)
         super(YearOfStudent,self).save(*args,**kwargs)
-
-
     def __str__(self):
         return str(self.year)
+        
+    def get_absolute_url(self):
+        return reverse('school_information:yearOfStudent', args=[str(self.slug)])
 
 class Department(models.Model):
     department_name = models.CharField(max_length=35)
@@ -27,25 +28,24 @@ class Department(models.Model):
 
     def __str__(self):
         return self.department_name
+    def get_absolute_url(self):
+        return reverse('school_information:department', args=[str(self.slug)])
 
-class Examiner(models.Model):
-    # Examiner_Choices = (
-    #     ('P.S.C', 'Primary School Certificate'),
-    #     ('J.S.C','Junior School Certificate'),
-    #     ('S.S.C','Secondary School Certificate'),
-    #
-    # )
-    examiner_title = models.CharField(max_length=150)
+class Candidate(models.Model):
+    name = models.CharField(max_length=150)
     slug = models.SlugField(max_length=100, unique=True,blank=True)
 
 
     def save(self,*args,**kwargs):
         if not self.slug:
-            self.slug = slugify(self.examiner_title)
-        super(Examiner,self).save(*args,**kwargs)
+            self.slug = slugify(self.name)
+        super(Candidate,self).save(*args,**kwargs)
 
     def __str__(self):
-        return self.examiner_title
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('school_information:candidate', args=[str(self.slug)])
 
 
 class Class(models.Model):
@@ -61,6 +61,8 @@ class Class(models.Model):
 
     def __str__(self):
         return self.name
+    def get_absolute_url(self):
+        return reverse('school_information:Class', args=[str(self.slug)])
 
 class Subject(models.Model):
     department = models.ForeignKey(Department,on_delete=models.CASCADE)
@@ -74,6 +76,9 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('school_information:subject', args=[str(self.slug)])
 
 
 class NoticBoard(models.Model):

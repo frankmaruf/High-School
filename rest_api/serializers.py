@@ -4,4 +4,4 @@ from students.models import Students
 class StudentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Students
-        exclude = ['examiner']
+        exclude = ['candidate_of']

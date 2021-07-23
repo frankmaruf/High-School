@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
 from django.utils import timezone
-from school_information.models import YearOfStudent,Department,Class,Examiner,Subject
+from school_information.models import YearOfStudent,Department,Class,Candidate,Subject
 from django.urls import reverse
 from django.utils.text import slugify
 from django.dispatch import receiver , Signal
@@ -22,7 +22,7 @@ class Students(models.Model):
     subject = models.ForeignKey(Subject,null=True,on_delete=models.SET_NULL,blank=True)
     roll = models.BigIntegerField(blank=False)
     year = models.ForeignKey(YearOfStudent,null=True,on_delete=models.SET_NULL)
-    examiner =models.ForeignKey(Examiner,null=True,on_delete=models.SET_NULL,blank=True)  #Rename this to Candidate
+    candidate_of =models.ForeignKey(Candidate,null=True,on_delete=models.SET_NULL,blank=True)  #Rename this to Candidate
     birth_certificate = models.BigIntegerField(blank=False,unique=True)
     birthDate = models.DateField(blank=False,null=True)
     email = models.EmailField(blank=True)
